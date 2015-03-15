@@ -190,11 +190,17 @@ medias <- rbind(InterWeek2, InterEnd2)
 
 ```{r panel_plot, echo=TRUE}
 library(ggplot2)
+#Order the factors to display
+day_order <- c("Weekend","Weekday")
+medias$Day <- ordered(medias$Day, day_order)
+#Ordering done
+medias <- medias[with(medias, order(Day)),]
 colors <- c("#E69F00", "#56B4E9")
 ggplot(medias, aes(x=interval, y=steps, color=Day)) + facet_grid(Day ~ .) + 
   geom_line(size=1) + scale_colour_manual(values=colors) + 
   ylab(expression("Average steps per day")) + xlab("Interval (min)") + 
-  ggtitle(expression("Steps per day according to day of the week")) + theme_bw() + theme(legend.position="bottom")
+  ggtitle(expression("Steps per day according to day of the week")) + theme_bw() + 
+  theme(legend.position="bottom")
 ```
 
 As seen by the plot, there seems to be a higher number of steps during early intervals during the week compared to the weekend. However, during the rest of the day there seems to be more activity in the intervals after the big peak of the weekday interval ~835 during the weekend. In summary, it seems to be the case that there are differences in the activity patterns between weekdays and weekends.

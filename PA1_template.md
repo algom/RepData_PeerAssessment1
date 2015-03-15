@@ -296,11 +296,17 @@ medias <- rbind(InterWeek2, InterEnd2)
 
 ```r
 library(ggplot2)
+#Order the factors to display
+day_order <- c("Weekend","Weekday")
+medias$Day <- ordered(medias$Day, day_order)
+#Ordering done
+medias <- medias[with(medias, order(Day)),]
 colors <- c("#E69F00", "#56B4E9")
 ggplot(medias, aes(x=interval, y=steps, color=Day)) + facet_grid(Day ~ .) + 
   geom_line(size=1) + scale_colour_manual(values=colors) + 
   ylab(expression("Average steps per day")) + xlab("Interval (min)") + 
-  ggtitle(expression("Steps per day according to day of the week")) + theme_bw() + theme(legend.position="bottom")
+  ggtitle(expression("Steps per day according to day of the week")) + theme_bw() + 
+  theme(legend.position="bottom")
 ```
 
 ![plot of chunk panel_plot](figure/panel_plot-1.png) 
