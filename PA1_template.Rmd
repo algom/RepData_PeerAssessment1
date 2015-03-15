@@ -190,7 +190,7 @@ medias <- rbind(InterWeek2, InterEnd2)
 
 For this the data is grouped to be displayed by day of the week, either weekday or weekend, and a panel plot is created using ggplot2.
 
-```{r panel_plot, echo=TRUE}
+```{r panel_plot_n, echo=TRUE}
 library(ggplot2)
 #Order the factors to display
 day_order <- c("Weekend","Weekday")

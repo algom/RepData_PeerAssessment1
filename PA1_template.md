@@ -311,6 +311,6 @@ ggplot(medias, aes(x=interval, y=steps, color=Day)) + facet_grid(Day ~ .) +
   theme(legend.position="bottom")
 ```
 
-![plot of chunk panel_plot](figure/panel_plot-1.png) 
+![plot of chunk panel_plot_n](figure/panel_plot_n-1.png) 
 
 As seen by the plot, there seems to be a higher number of steps during early intervals during the week compared to the weekend. However, during the rest of the day there seems to be more activity in the intervals after the big peak of the weekday interval ~835 during the weekend. In summary, it seems to be the case that there are differences in the activity patterns between weekdays and weekends.
