@@ -356,12 +356,26 @@ activity &lt;- read.csv(&quot;activity.csv&quot;)
 
 <p><strong>1. Calculate and report the total number of missing values in the dataset.</strong></p>
 
-<p><strong>The total missing values, NAs are reported.</strong></p>
+<p>The total missing values, NAs are reported.</p>
 
 <pre><code class="r">sum(is.na(activity$steps))
 </code></pre>
 
 <pre><code>## [1] 2304
+</code></pre>
+
+<p>There are <strong>2304</strong> missing values. No NAs are reported in the dates or intervals, as shown below:</p>
+
+<pre><code class="r">sum(is.na(activity$date))
+</code></pre>
+
+<pre><code>## [1] 0
+</code></pre>
+
+<pre><code class="r">sum(is.na(activity$interval))
+</code></pre>
+
+<pre><code>## [1] 0
 </code></pre>
 
 <p><strong>2. Imputaton of missing values in the dataset.</strong> </p>
@@ -377,6 +391,14 @@ for (i in 1:nrow(nActivity)) {
         nActivity$steps[i] &lt;- StepsInterval[which(nActivity$interval[i] == StepsInterval$interval), ]$steps
   }
 }
+</code></pre>
+
+<p>Then it is assessed if there are missing values in the new dataset:</p>
+
+<pre><code class="r">sum(is.na(nActivity$steps))
+</code></pre>
+
+<pre><code>## [1] 0
 </code></pre>
 
 <p><strong>3. Generate a histogram of the total number of steps taken each day.</strong></p>

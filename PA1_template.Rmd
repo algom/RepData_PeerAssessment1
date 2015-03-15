@@ -96,11 +96,22 @@ After a brief view of the original RAW data, it is noted that there are a some d
 
 **1. Calculate and report the total number of missing values in the dataset.**
 
-**The total missing values, NAs are reported.**
+The total missing values, NAs are reported.
 
 ```{r NAs, echo=TRUE}
 sum(is.na(activity$steps))
 ```
+
+There are **2304** missing values. No NAs are reported in the dates or intervals, as shown below:
+
+```{r NAs2, echo=TRUE}
+sum(is.na(activity$date))
+```
+
+```{r NAs3, echo=TRUE}
+sum(is.na(activity$interval))
+```
+
 
 **2. Imputaton of missing values in the dataset.** 
 
@@ -117,6 +128,12 @@ for (i in 1:nrow(nActivity)) {
         nActivity$steps[i] <- StepsInterval[which(nActivity$interval[i] == StepsInterval$interval), ]$steps
   }
 }
+```
+
+Then it is assessed if there are missing values in the new dataset:
+
+```{r NAs4, echo=TRUE}
+sum(is.na(nActivity$steps))
 ```
 
 **3. Generate a histogram of the total number of steps taken each day.**
