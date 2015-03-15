@@ -13,7 +13,7 @@ output:
 
 ## Loading and preprocessing the data
 
-For loading and processing the data, one should setup the working directory for the R session in the same folder where the raw data is located.
+For loading and processing of the data, one should setup the working directory for the R session in the same folder where the raw data is located.
 
 After this the file is unzipped and read, using the following code:
 
