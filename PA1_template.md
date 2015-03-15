@@ -116,7 +116,7 @@ hist(StepsDay$steps, xlab="Steps", main="Frecuency of steps", col="grey47", bord
 
 For this the mean and median are obtained:
 
-Mean:
+**Mean:**
 
 ```r
 mean(StepsDay$steps)
@@ -125,7 +125,7 @@ mean(StepsDay$steps)
 ```
 ## [1] 10766.19
 ```
-Median:
+**Median:**
 
 ```r
 median(StepsDay$steps)
@@ -179,7 +179,7 @@ After a brief view of the original RAW data, it is noted that there are a some d
 
 **1. Calculate and report the total number of missing values in the dataset.**
 
-The total missing values, NAs are reported.
+**The total missing values, NAs are reported.**
 
 
 ```r
@@ -192,14 +192,18 @@ sum(is.na(activity$steps))
 
 **2. Imputaton of missing values in the dataset.** 
 
-For this a replacement of the missing values with the average of each 5 minute interval was carried out, and a new dataset was created with the imputated values.
+For this a replacement of the missing values with the average of each 5 minute interval was carried out, and a new dataset was created with the imputated values. Briefly, the code runs a loop in which it searches if there are missing values in each interval, if it founds one it then looks for the average steps in that interval, using the previous calculated data aggregation (StepsInterval), and replaces the NA with this value.
+
 
 
 ```r
 nActivity <- activity
+#Create function that goes through every line
 for (i in 1:nrow(nActivity)) {
-  if (is.na(nActivity$steps[i])) {
-    nActivity$steps[i] <- StepsInterval[which(nActivity$interval[i] == StepsInterval$interval), ]$steps
+    #Look for NA
+    if (is.na(nActivity$steps[i])) {
+        #If found replace them with corresponding mean interval value
+        nActivity$steps[i] <- StepsInterval[which(nActivity$interval[i] == StepsInterval$interval), ]$steps
   }
 }
 ```
@@ -226,7 +230,7 @@ hist(StepsDayN$steps, xlab="Steps", main="Frecuency of steps", col="grey47", bor
 
 For this the mean and median are obtained:
 
-Mean:
+**Mean:**
 
 ```r
 mean(StepsDayN$steps)
@@ -235,7 +239,7 @@ mean(StepsDayN$steps)
 ```
 ## [1] 10766.19
 ```
-Median:
+**Median:**
 
 ```r
 median(StepsDayN$steps)

@@ -303,7 +303,7 @@ activity &lt;- read.csv(&quot;activity.csv&quot;)
 
 <p>For this the mean and median are obtained:</p>
 
-<p>Mean:</p>
+<p><strong>Mean:</strong></p>
 
 <pre><code class="r">mean(StepsDay$steps)
 </code></pre>
@@ -311,7 +311,7 @@ activity &lt;- read.csv(&quot;activity.csv&quot;)
 <pre><code>## [1] 10766.19
 </code></pre>
 
-<p>Median:</p>
+<p><strong>Median:</strong></p>
 
 <pre><code class="r">median(StepsDay$steps)
 </code></pre>
@@ -356,7 +356,7 @@ activity &lt;- read.csv(&quot;activity.csv&quot;)
 
 <p><strong>1. Calculate and report the total number of missing values in the dataset.</strong></p>
 
-<p>The total missing values, NAs are reported.</p>
+<p><strong>The total missing values, NAs are reported.</strong></p>
 
 <pre><code class="r">sum(is.na(activity$steps))
 </code></pre>
@@ -366,12 +366,15 @@ activity &lt;- read.csv(&quot;activity.csv&quot;)
 
 <p><strong>2. Imputaton of missing values in the dataset.</strong> </p>
 
-<p>For this a replacement of the missing values with the average of each 5 minute interval was carried out, and a new dataset was created with the imputated values.</p>
+<p>For this a replacement of the missing values with the average of each 5 minute interval was carried out, and a new dataset was created with the imputated values. Briefly, the code runs a loop in which it searches if there are missing values in each interval, if it founds one it then looks for the average steps in that interval, using the previous calculated data aggregation (StepsInterval), and replaces the NA with this value.</p>
 
 <pre><code class="r">nActivity &lt;- activity
+#Create function that goes through every line
 for (i in 1:nrow(nActivity)) {
-  if (is.na(nActivity$steps[i])) {
-    nActivity$steps[i] &lt;- StepsInterval[which(nActivity$interval[i] == StepsInterval$interval), ]$steps
+    #Look for NA
+    if (is.na(nActivity$steps[i])) {
+        #If found replace them with corresponding mean interval value
+        nActivity$steps[i] &lt;- StepsInterval[which(nActivity$interval[i] == StepsInterval$interval), ]$steps
   }
 }
 </code></pre>
@@ -394,7 +397,7 @@ for (i in 1:nrow(nActivity)) {
 
 <p>For this the mean and median are obtained:</p>
 
-<p>Mean:</p>
+<p><strong>Mean:</strong></p>
 
 <pre><code class="r">mean(StepsDayN$steps)
 </code></pre>
@@ -402,7 +405,7 @@ for (i in 1:nrow(nActivity)) {
 <pre><code>## [1] 10766.19
 </code></pre>
 
-<p>Median:</p>
+<p><strong>Median:</strong></p>
 
 <pre><code class="r">median(StepsDayN$steps)
 </code></pre>
