@@ -291,7 +291,9 @@ InterEnd2$Day <- "Weekend"
 medias <- rbind(InterWeek2, InterEnd2)
 ```
 
-**2. A panel plot containing a time series plot of the 5-minute interval and the average number of steps taken, averaged across all weekday days or weekend days is generated using ggplot2.**
+**2. Generate a panel plot containing a time series plot of the 5-minute interval and the average number of steps taken, averaged across all weekday days or weekend days.**
+
+For this the data is grouped to be displayed by day of the week, either weekday or weekend, and a panel plot is created using ggplot2.
 
 
 ```r
