@@ -213,7 +213,7 @@ A histogram is created with the new dataset. For this as before, first the data 
 StepsDayN <- aggregate(steps ~ date, data = nActivity, FUN = sum, na.rm=TRUE)
 ```
 
-And then the histogram of steps per day is generated
+And then the histogram of steps per day is generated.
 
 
 ```r

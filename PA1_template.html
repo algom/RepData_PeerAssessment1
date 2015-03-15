@@ -383,7 +383,7 @@ for (i in 1:nrow(nActivity)) {
 <pre><code class="r">StepsDayN &lt;- aggregate(steps ~ date, data = nActivity, FUN = sum, na.rm=TRUE)
 </code></pre>
 
-<p>And then the histogram of steps per day is generated</p>
+<p>And then the histogram of steps per day is generated.</p>
 
 <pre><code class="r">hist(StepsDayN$steps, xlab=&quot;Steps&quot;, main=&quot;Frecuency of steps&quot;, col=&quot;grey47&quot;, border=&quot;white&quot;)
 </code></pre>
