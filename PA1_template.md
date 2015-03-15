@@ -306,7 +306,7 @@ medias <- medias[with(medias, order(Day)),]
 colors <- c("#E69F00", "#56B4E9")
 ggplot(medias, aes(x=interval, y=steps, color=Day)) + facet_grid(Day ~ .) + 
   geom_line(size=1) + scale_colour_manual(values=colors) + 
-  ylab(expression("Average steps per day")) + xlab("Interval (min)") + 
+  ylab(expression("Number of steps")) + xlab("Interval (min)") + 
   ggtitle(expression("Steps per day according to day of the week")) + theme_bw() + 
   theme(legend.position="bottom")
 ```
