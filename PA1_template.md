@@ -224,7 +224,7 @@ for (i in 1:nrow(nActivity)) {
     #Look for NA
     if (is.na(nActivity$steps[i])) {
         #If found replace them with corresponding mean interval value
-        nActivity$steps[i] <- StepsInterval[which(nActivity$interval[i] == StepsInterval$interval), ]$steps
+        nActivity$steps[i] <- StepsInterval$steps[which(nActivity$interval[i] == StepsInterval$interval)]
   }
 }
 ```
